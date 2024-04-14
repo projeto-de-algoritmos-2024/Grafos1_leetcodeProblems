@@ -37,23 +37,20 @@ int BFS (vector<couple*> couples){
             S.push_back(vizinho2);
         }
     }
-    cout << S[0] << endl;
     return counter + BFS(couples);
 }
 
 int main(){
-    vector<int> row = {0,2,3,1};
+    vector<int> row = {0,4,1,5,8,6,7,2,3,9};
     vector<couple*> couples;
     for (int i = 0; i < row.size(); i+=2){
         couple *node = (couple*)malloc(sizeof(couple));
         if (row[i]%2 == 0)
             node->n1 = row[i]/2;
         else node->n1 = (row[i])/2; 
-        cout << node->n1 << endl;
         if (row[i+1]%2 == 0)
             node->n2 = row[i+1]/2;
         else node->n2 = (row[i+1])/2; 
-        cout << node->n2 << endl;
         node->prox1 = -1;
         node->prox2 = -1;   
         node->used = false;    
@@ -85,7 +82,6 @@ int main(){
         }
     }
 
-    cout << endl << couples[couples[1]->prox1]->n1 << endl;
     cout << BFS(couples) << endl;
     return 0;
 }
