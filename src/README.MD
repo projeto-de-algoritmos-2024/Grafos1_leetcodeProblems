@@ -22,3 +22,11 @@ Output: 0 <br>
 Explanation: All couples are already seated side by side. <br>
 
 ## Solução
+
+Para este problema, será considerado cada par de elementos do vetor como um **vértice** no grafo. Sendo assim, para saber a qual casal o elemento pertence é só dividir por 2 (se par), ou subtrair 1 do elemento e depois dividir por 2 (se ímpar).
+
+```C++
+if (row[i]%2 == 0)
+    node->n1 = row[i]/2;
+else node->n1 = (row[i])/2;
+```
