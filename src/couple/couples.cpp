@@ -12,6 +12,7 @@ typedef struct couple{
 
 vector<int> S;
 int BFS (vector<couple*> couples){
+    int counter = 0;
     for (int i = 0; i < couples.size(); i++){
         if (couples[i]->used == false){
             couples[i]->used = true;
@@ -19,8 +20,24 @@ int BFS (vector<couple*> couples){
             break;
         }        
     }
+    while (S.empty() == false){
+        int u = S.front();
+        S.erase(S.begin());
+        int vizinho1 = couples[u]->prox1;
+        int vizinho2 = couples[u]->prox2;
+        if (couples[vizinho1]->used == false){
+            couples[vizinho1]->used = true;
+            counter++;
+            S.push_back(vizinho1);
+        }
+        if (couples[vizinho2]->used == false){
+            couples[vizinho2]->used = true;
+            counter++;
+            S.push_back(vizinho2);
+        }
+    }
     cout << S[0] << endl;
-    return 1;
+    return counter;
 }
 
 int main(){
