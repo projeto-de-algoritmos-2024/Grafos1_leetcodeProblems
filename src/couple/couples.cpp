@@ -20,6 +20,7 @@ int BFS (vector<couple*> couples){
             break;
         }        
     }
+    if (S.empty()) return 0;
     while (S.empty() == false){
         int u = S.front();
         S.erase(S.begin());
