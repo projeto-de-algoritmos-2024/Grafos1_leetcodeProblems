@@ -9,6 +9,10 @@ typedef struct couple{
     int prox2;
 } couple;
 
+int BFS (vector<couple*> couples){
+    return 1;
+}
+
 int main(){
     vector<int> row = {0,2,3,1};
     vector<couple*> couples;
@@ -53,5 +57,6 @@ int main(){
     }
 
     cout << endl << couples[couples[1]->prox1]->n1 << endl;
+    cout << BFS(couples) << endl;
     return 0;
 }
