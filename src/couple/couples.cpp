@@ -5,11 +5,21 @@ using namespace std;
 typedef struct couple{
     int n1;
     int n2;
+    bool used;
     int prox1;
     int prox2;
 } couple;
 
+vector<int> S;
 int BFS (vector<couple*> couples){
+    for (int i = 0; i < couples.size(); i++){
+        if (couples[i]->used == false){
+            couples[i]->used = true;
+            S.push_back(i);            
+            break;
+        }        
+    }
+    cout << S[0] << endl;
     return 1;
 }
 
@@ -27,7 +37,8 @@ int main(){
         else node->n2 = (row[i+1])/2; 
         cout << node->n2 << endl;
         node->prox1 = -1;
-        node->prox2 = -1;       
+        node->prox2 = -1;   
+        node->used = false;    
         couples.push_back(node);
     }
     
