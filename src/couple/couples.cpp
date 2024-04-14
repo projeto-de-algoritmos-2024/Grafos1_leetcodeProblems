@@ -37,7 +37,7 @@ int BFS (vector<couple*> couples){
         }
     }
     cout << S[0] << endl;
-    return counter;
+    return counter + BFS(couples);
 }
 
 int main(){
