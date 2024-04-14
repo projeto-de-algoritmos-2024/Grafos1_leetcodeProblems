@@ -22,6 +22,9 @@ int main(){
             node->n2 = row[i+1]/2;
         else node->n2 = (row[i+1])/2; 
         cout << node->n2 << endl;
+        node->prox1 = -1;
+        node->prox2 = -1;       
+        couples.push_back(node);
     }
     return 0;
 }
