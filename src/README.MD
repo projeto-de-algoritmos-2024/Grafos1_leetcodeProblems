@@ -43,6 +43,19 @@ typedef struct couple{
    int prox2;
 } couple;
 ```
+Para a construção das conexões do grafo, é varrido o vetor couples e se um dos elementos for igual, o prox correspondente apontará para a posição “i” do vetor.
+
+**Criação das conexões:**
+```C++
+if (couples[j]->n1 == node->n1){
+    couples[j]->prox1 = i;
+    node->prox1 = j;
+} else if (couples[j]->n2 == node->n1){
+    couples[j]->prox2 = i;
+    node->prox1 = j;
+}
+```
+
 
 Depois de criado o grafo Couples, é feito uma BFS a partir de um vértice qualquer ainda não usado. Nessa BFS, terá um inteiro “counter” que conta quantas vezes uma aresta é adicionada. Sendo que, o resultado desse “counter” representa a quantidade de arestas na árvore, e também representa a quantidade mínima de swaps que deverá ser feita para colocar todos os elementos juntos com seus casais.
 
