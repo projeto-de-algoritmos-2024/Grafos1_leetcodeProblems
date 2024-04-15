@@ -7,5 +7,5 @@ class Solution:
             for i in range(k):
                 prox = dfs (res + str(i),vis,total)
                 if prox: return prox
-
+            vis.remove (res[-n:])
         return dfs ( '0' * n, set(), k ** n)
