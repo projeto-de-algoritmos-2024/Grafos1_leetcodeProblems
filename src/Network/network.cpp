@@ -10,25 +10,10 @@ typedef struct node {
 
 vector<int> S;
 int unconnected = -1;
-int BFS (vector<node*> network){
-    int counter = 0;
-    for (int i = 0; i < network.size(); i++){
-        if (network[i] != NULL){
-            if (network[i]->used == false){
-                network[i]->used = true;
-                S.push_back(i);
-                unconnected++;           
-                break;
-            } 
-        } else {
-            node* fill = (node*)malloc(sizeof(node));
-            fill->used = true;
-            network[i] = fill;
-            unconnected++;
-        }             
-    }
+int DFS (vector<node*> network, int visited){
+    network[visited]->used = true;
+    S.push_back(visited);
     if (S.empty()) return 0;
-
     while (S.empty() == false){
         int u = S.front();
         S.erase(S.begin());
@@ -39,16 +24,15 @@ int BFS (vector<node*> network){
             vizinho.push_back(computer->point);
             computer = computer->next;
         }
-
+        free(computer);
         for (int i = 0; i < vizinho.size(); i++){
             if (network[vizinho[i]]->used == false){
                 network[vizinho[i]]->used = true;
-                counter++;
-                S.push_back(vizinho[i]);
+                DFS(network, vizinho[i]);
             }
         }
     }
-    return counter + BFS(network);
+    return 0;
 }
 
 int main(){
@@ -83,15 +67,28 @@ int main(){
         new2->next = network[connections[i][1]];        
         network[connections[i][1]] = new2;   
     }
-    int cabosUsados = BFS(network);
-    int cabosRestantes = connections.size() - cabosUsados;
-
-    cout << cabosUsados << " : " << unconnected << endl;
-    cout << cabosRestantes << endl;
+    for (int i = 0; i < network.size(); i++){
+        if (network[i] == NULL){
+            node* fill = (node*)malloc(sizeof(node));
+            fill->used = true;
+            network[i] = fill;
+            unconnected++;
+        }
+    }
+    bool exit = false;
+    while (exit == false){
+        for (int i = 0; i < network.size(); i++){
+            if (network[i]->used == false){
+                exit = false;
+                DFS (network, i);
+                unconnected++;
+                break;
+            } else exit = true;
+        }
+    }
 
     cout << endl << "Resposta:" << endl;
-    if (cabosRestantes >= unconnected) cout << unconnected << endl;
-    else cout << "-1" << endl;
+    cout << unconnected << endl;
 
     return 0;
 }
