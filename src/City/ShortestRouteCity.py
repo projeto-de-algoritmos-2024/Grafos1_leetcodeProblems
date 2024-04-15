@@ -10,3 +10,12 @@ class Solution:
         n = deque ([0])
         vis = set([0])
         r = 0
+        while n:
+            no = n.popleft()
+            for viz in y[no]:
+                if viz not in vis:
+                    if (no , viz) in x:
+                        r+=1
+                    vis.add(viz)
+                    n.append(viz)
+        return r
