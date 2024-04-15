@@ -13,7 +13,8 @@
 Neste projeto, será abordado alguns problemas disponíveis na plataforma [LeetCode](https://leetcode.com/) sobre grafos. Sendo que os problemas apresentados serão resolvidos utilizando conceitos apredidos em sala de aula.
 
 ## Screenshots
-Adicione 3 ou mais screenshots do projeto em funcionamento.
+[Couples Holding Hands:](https://leetcode.com/problems/couples-holding-hands/description/)<br>
+![](./src/assets/CouplesSubmission.jpeg)
 
 ## Instalação 
 **Linguagem**: C++<br>
