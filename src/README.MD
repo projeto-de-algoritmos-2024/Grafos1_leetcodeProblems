@@ -62,4 +62,4 @@ Depois de criado o grafo Couples, é feito uma BFS a partir de um vértice qualq
 Por fim, é feita uma chamada recursiva na BFS, para garantir que todas as árvores foram contadas.
 
 **Submissão:**<br>
-![](/assets/CouplesSubmission.jpeg)
+![](./assets/CouplesSubmission.jpeg)
