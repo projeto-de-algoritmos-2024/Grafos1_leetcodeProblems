@@ -8,31 +8,18 @@ typedef struct node {
     node* next;
 } node;
 
-vector<int> S;
 int unconnected = -1;
-int DFS (vector<node*> network, int visited){
+void DFS (vector<node*> network, int visited){
     network[visited]->used = true;
-    S.push_back(visited);
-    if (S.empty()) return 0;
-    while (S.empty() == false){
-        int u = S.front();
-        S.erase(S.begin());
-        node *computer = network[u];
-        vector<int> vizinho;   
+    node *computer = network[visited];  
 
-        while (computer != NULL){
-            vizinho.push_back(computer->point);
-            computer = computer->next;
+    while (computer != NULL){
+        if (network[computer->point]->used == false){
+            DFS(network, computer->point);
         }
-        free(computer);
-        for (int i = 0; i < vizinho.size(); i++){
-            if (network[vizinho[i]]->used == false){
-                network[vizinho[i]]->used = true;
-                DFS(network, vizinho[i]);
-            }
-        }
+        computer = computer->next;
     }
-    return 0;
+    return;
 }
 
 int main(){
