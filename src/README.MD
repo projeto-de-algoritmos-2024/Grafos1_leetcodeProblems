@@ -60,3 +60,6 @@ if (couples[j]->n1 == node->n1){
 Depois de criado o grafo Couples, é feito uma BFS a partir de um vértice qualquer ainda não usado. Nessa BFS, terá um inteiro “counter” que conta quantas vezes uma aresta é adicionada. Sendo que, o resultado desse “counter” representa a quantidade de arestas na árvore, e também representa a quantidade mínima de swaps que deverá ser feita para colocar todos os elementos juntos com seus casais.
 
 Por fim, é feita uma chamada recursiva na BFS, para garantir que todas as árvores foram contadas.
+
+**Submissão:**<br>
+![](/assets/CouplesSubmission.jpeg)
