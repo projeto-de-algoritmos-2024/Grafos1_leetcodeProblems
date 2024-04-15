@@ -158,9 +158,9 @@ Return the minimum number of times you need to do this in order to make all the 
 
 Para resolver este problema, primeiramente deve-se construir um grafo a partir dos dados fornecidos. Sendo assim, foi construída uma estrutura de dados chamada **node** que possui os parâmetros:
 
-point: para onde a posição está apontando
-used: se a posição já foi usada ou não (só vale para a primeira posição da lista de cada posição no vetor).
- next: próxima posição na lista encadeada (outro vizinho).
+- point: para onde a posição está apontando
+- used: se a posição já foi usada ou não (só vale para a primeira posição da lista de cada posição no vetor).
+- next: próxima posição na lista encadeada (outro vizinho).
 
 Depois disso, foi criado um vetor de node chamado **network** que guardará o grafo do problema. Para a criação desse vetor foi usada a seguinte estrutura:
 
