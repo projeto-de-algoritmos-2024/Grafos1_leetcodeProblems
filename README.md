@@ -29,13 +29,3 @@ Neste projeto, será abordado alguns problemas disponíveis na plataforma [LeetC
 **Linguagem**: C++ e Python  <br> 
 **Framework**: Não<br>
 **Pré-requisito**: compilador de C++ e Compilador de Python.
-
-## Uso 
-Explique como usar seu projeto caso haja algum passo a passo após o comando de execução.
-
-## Outros 
-Quaisquer outras informações sobre seu projeto podem ser descritas abaixo.
-
-
-
-
