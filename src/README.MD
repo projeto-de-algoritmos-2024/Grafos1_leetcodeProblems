@@ -219,7 +219,7 @@ void DFS (vector<node*> network, int visited){
 
 # 1466. Reorder Routes to Make All Paths Lead to the City Zero
 
-Problema: [Reorder Routes to Make All Paths Lead to the City Zero](https://leetcode.com/problems reorder-routes-to-make-all-paths-lead-to-the-city-zero/description/)
+Problema: [Reorder Routes to Make All Paths Lead to the City Zero](https://leetcode.com/problems/reorder-routes-to-make-all-paths-lead-to-the-city-zero/description/)
 
 **Descrição:** <br>
 
