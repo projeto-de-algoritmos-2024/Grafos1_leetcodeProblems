@@ -1,6 +1,6 @@
 # LeetCode Problems
 
-**Número da Lista**: <br>
+**Número da Lista**: 17 <br>
 **Conteúdo da Disciplina**: Grafos 1<br>
 
 ## Alunos
