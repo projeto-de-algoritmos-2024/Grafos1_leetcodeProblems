@@ -17,9 +17,9 @@ Neste projeto, será abordado alguns problemas disponíveis na plataforma [LeetC
 ![](./src/assets/CouplesSubmission.jpeg)
 
 ## Instalação 
-**Linguagem**: C++<br>
+**Linguagem**: C++ Python  <br> 
 **Framework**: Não<br>
-**Pré-requisito**: compilador de C++.
+**Pré-requisito**: compilador de C++ e Compilador de Python.
 
 ## Uso 
 Explique como usar seu projeto caso haja algum passo a passo após o comando de execução.
