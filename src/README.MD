@@ -217,74 +217,6 @@ void DFS (vector<node*> network, int visited){
 
 ![](./assets/NetworkBFSsubmission.jpeg)
 
-Problema: [Cracking the Safe](https://leetcode.com/problems/cracking-the-safe/description/)
-
-**Descrição:** <br>
-There is a safe protected by a password. The password is a sequence of n digits where each digit can be in the range [0, k - 1].<br>
-
-The safe has a peculiar way of checking the password. When you enter in a sequence, it checks the most recent n digits that were entered each time you type a digit.<br>
-
-For example, the correct password is "345" and you enter in "012345":<br>
-
-After typing 0, the most recent 3 digits is "0", which is incorrect.<br>
-
-After typing 1, the most recent 3 digits is "01", which is incorrect.<br>
-
-After typing 2, the most recent 3 digits is "012", which is incorrect.<br>
-
-After typing 3, the most recent 3 digits is "123", which is incorrect.<br>
-
-After typing 4, the most recent 3 digits is "234", which is incorrect.<br>
-
-After typing 5, the most recent 3 digits is "345", which is correct and the safe unlocks.<br>
-
-Return any string of minimum length that will unlock the safe at some point of entering it.<br>
-
-**Example 1:**
-
-Input: n = 1, k = 2<br>
-
-Output: "10"<br>
-
-Explanation: The password is a single digit, so enter each digit. "01" would also unlock the safe.<br>
-
-**Example 2:**
-
-Input: n = 2, k = 2<br>
-
-Output: "01100"<br>
-
-Explanation: For each possible password:<br>
-- "00" is typed in starting from the 4th digit.<br>
-
-- "01" is typed in starting from the 1st digit.<br>
-
-- "10" is typed in starting from the 3rd digit.<br>
-
-- "11" is typed in starting from the 2nd digit.<br>
-
-Thus "01100" will unlock the safe. "10011", and "11001" would also unlock the safe.<br>
-
-
-## Solução
-
-Para este problema, será considerado cada dígito do cofre como um **vértice** de um grafo. Dessa forma é possível saber qual a string que testa o máximo de possíbilidades com menor tamanho usando uma **Busca de Profundidade (DFS)** comparando os últimos n números da string com cada uma das possibilidades de resposta. 
-
-**Exemplo:**
-
-Usando o exemplo 2 acima: 
-- O código sempre vai começar com 0, como a senha é de 2 números ela pula e adiciona outro 0 na string 
-- Como o  valor atual da string é 00 e como essa é a primeira string vista na resposta ela adiciona os dois últimos dígitos da string no final da string resposta com ela ficando: 00
-- Após isso ela pode adicionar 0 ou 1 caso ela adicione 0 a string vai ficar 000 e ao comparar os 2 últimos digitos da string resposta vai ver que já tem 00 e então vai voltar para o nó antigo
--  E depois  este vai para 1 e como 01 não foi visto ele adiciona o 1 no final da string resposta ficando: 001
-- Após isso é colocado outro 1 na string e como 11 aparece pela primeira vez outro 1 é adicionado na string resposta ficando: 0011
-- Após isso um 0 é adicionado na string como 10 não foi visto até agora 0 é adicionado na string resposta com está ficando : 00110
-
-
-**Submissão:**<br>
-![](./assets/SafeSubmission.png)
-
-
 # 1466. Reorder Routes to Make All Paths Lead to the City Zero
 
 Problema: [Reorder Routes to Make All Paths Lead to the City Zero](https://leetcode.com/problems reorder-routes-to-make-all-paths-lead-to-the-city-zero/description/)
@@ -335,4 +267,3 @@ a conexão está apontada a cidade não visitada ele incremnta o r, após isso e
 
 **Submissão:**<br>
 ![](./assets/CitySubmission.png)
-
