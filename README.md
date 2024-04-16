@@ -26,6 +26,6 @@ Neste projeto, será abordado alguns problemas disponíveis na plataforma [LeetC
 ![](./src/assets/CitySubmission.png)
 
 ## Instalação 
-**Linguagem**: C++ e Python  <br> 
+**Linguagem**: C++ e Python3  <br> 
 **Framework**: Não<br>
-**Pré-requisito**: compilador de C++ e Compilador de Python.
+**Pré-requisito**: compilador de C++ e Compilador de Python3.
