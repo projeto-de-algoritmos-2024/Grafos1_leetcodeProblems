@@ -133,3 +133,86 @@ Usando o exemplo 2 acima:
 
 **Submissão:**<br>
 ![](./assets/SafeSubmission.png)
+
+# 1319. Number of Operations to Make Network Connected
+
+Problema: [Number of Operations to Make Network Connected](https://leetcode.com/problems/number-of-operations-to-make-network-connected/description/)
+
+**Descrição:**
+
+There are n computers numbered from 0 to n - 1 connected by ethernet cables connections forming a network where connections[i] = [ai, bi] represents a connection between computers ai and bi. Any computer can reach any other computer directly or indirectly through the network.
+
+You are given an initial computer network connections. You can extract certain cables between two directly connected computers, and place them between any pair of disconnected computers to make them directly connected.
+
+Return the minimum number of times you need to do this in order to make all the computers connected. If it is not possible, return -1.
+
+**Example 1:**
+
+![](./assets/image.png)
+
+**Input:** n = 4, connections = [[0,1],[0,2],[1,2]] <br>
+**Output:** 1 <br>
+**Explanation:** Remove cable between computer 1 and 2 and place between computers 1 and 3. <br>
+
+## Solução
+
+Para resolver este problema, primeiramente deve-se construir um grafo a partir dos dados fornecidos. Sendo assim, foi construída uma estrutura de dados chamada **node** que possui os parâmetros:
+
+- point: para onde a posição está apontando
+- used: se a posição já foi usada ou não (só vale para a primeira posição da lista de cada posição no vetor).
+- next: próxima posição na lista encadeada (outro vizinho).
+
+Depois disso, foi criado um vetor de node chamado **network** que guardará o grafo do problema. Para a criação desse vetor foi usada a seguinte estrutura:
+
+```C++
+for (int i = 0; i < connections.size(); i++){
+    node *new1 = (node*)malloc(sizeof(node));
+    new1->point = connections[i][1];
+    new1->used = false;
+    new1->next = network[connections[i][0]];       
+    network[connections[i][0]] = new1;
+
+
+    node *new2 = (node*)malloc(sizeof(node));
+    new2->point = connections[i][0];
+    new2->used = false;
+    new2->next = network[connections[i][1]];       
+    network[connections[i][1]] = new2;  
+}
+```
+
+Criado o grafo, agora é possível fazer uma DFS (Deep first Search) ou BFS (Broad Firs Search) para contar a quantidade de árvores soltas no grafo. Isso porque, a quantidade de swaps de cabos de rede que serão necessários para conectar toda a estrutura é igual a quantidade de componentes presentes no grafo. Sendo assim, para este problema foi usado primariamente uma BFS, no entanto posteriormente essa BFS foi trocada por uma DFS em busca de conseguir um melhor resultado (não houve visto que a complexidade de ambas é a mesma).
+
+Na DFS usada não foi usada a recursão (BackTracking). Isso porque alguns dos casos de teste possuíam mais de 49000 computadores com outras milhares de conexões entre eles. Esses casos teste geraram árvores muito grandes, que quando aplicava-se a DFS recursiva estourava a capacidade de memória disponível para recursão. Consequentemente foi usada uma DFS não recursiva, que aproveita uma lista de inteiros **S** para marcar os passos.
+
+**DFS**
+```C++
+vector<int>S;
+void DFS (vector<node*> network, int visited){    
+   S.push_back(visited);  
+   while (S.empty() == false){
+       visited = S.back();
+       S.pop_back();
+       network[visited]->used = true;
+       node *computer = network[visited];
+       while (computer != NULL){
+           if (network[computer->point]->used == false){
+               S.push_back(computer->point);
+           }
+           computer = computer->next;      
+       }
+   }
+  
+   return;
+}
+```
+
+**Submissão:**
+
+**DFS:**
+
+![](./assets/NetworkDFSsubmission.jpeg)
+
+**BFS:**
+
+![](./assets/NetworkBFSsubmission.jpeg)
