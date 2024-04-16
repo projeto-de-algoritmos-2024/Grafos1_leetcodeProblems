@@ -29,3 +29,6 @@ Neste projeto, será abordado alguns problemas disponíveis na plataforma [LeetC
 **Linguagem**: C++ e Python3  <br> 
 **Framework**: Não<br>
 **Pré-requisito**: compilador de C++ e Compilador de Python3.
+
+## Link da Apresentação
+[Apresentação PA 17 - LeetCode Problems - Grafos 1](https://youtu.be/Sjyr6mqgj3o)<br>
